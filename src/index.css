@@ -5,9 +5,30 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  display: flex;
+  justify-content: center;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+
+.square {
+  margin: 0;
+  width: 100px;
+  height: 100px;
+  background-color: grey;
+  border: solid black;
+  transition: transform .17s ;
+}
+.square:hover {
+  transform: scale(1.02, 1.02)
+}
+
+.board {
+  display: flex;
+  width: 400px;
+  flex-wrap: wrap;
 }
