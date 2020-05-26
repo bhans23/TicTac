@@ -1,52 +1,58 @@
-import React, { useState } from "react";
+import React from "react";
 import XSquare from "./XSquare";
 import OSquare from "./OSquare";
 
-const Square6 = ({ player1, setPlayer1 }) => {
-  const [squareType, setSquareType] = useState("none");
+const Square6 = ({
+  player,
+  setPlayer,
+  squarePlayerTurn,
+  setSquarePlayerTurn,
+}) => {
+  const { square6Turn } = squarePlayerTurn;
+
   const playerSelect = () => {
-    if (player1.turn === "none") {
-      setPlayer1({
+    if (player.turn === "none") {
+      setPlayer({
         turn: "player2",
       });
 
-      setSquareType("player2");
+      setSquarePlayerTurn({ ...squarePlayerTurn, square6Turn: "player2" });
     }
-    if (player1.turn === "player2") {
-      setPlayer1({
+    if (player.turn === "player2") {
+      setPlayer({
         turn: "player1",
       });
-      setSquareType("player1");
+      setSquarePlayerTurn({ ...squarePlayerTurn, square6Turn: "player1" });
     } else {
-      setPlayer1({
+      setPlayer({
         turn: "player2",
       });
 
-      setSquareType("player2");
+      setSquarePlayerTurn({ ...squarePlayerTurn, square6Turn: "player2" });
     }
   };
 
   const squareSelect = () => {
-    if (squareType === "none") {
-      return <> </>;
-    }
-    if (squareType === "player2") {
-      return (
-        <>
-          <XSquare />
-        </>
-      );
-    } else {
+    if (square6Turn === "player1") {
       return (
         <>
           <OSquare />
         </>
       );
     }
+    if (square6Turn === "player2") {
+      return (
+        <>
+          <XSquare />
+        </>
+      );
+    } else {
+      return <></>;
+    }
   };
 
   const finalSelect = () => {
-    if (squareType === "none") {
+    if (square6Turn === "none") {
       return (
         <button
           className="square"
