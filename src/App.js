@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState} from "react";
 import "./App.css";
 import Square1 from "./squares/Square1";
 import Square2 from "./squares/Square2";
@@ -12,6 +12,8 @@ import Square9 from "./squares/Square9";
 
 const App = () => {
   const [player, setPlayer] = useState({ turn: "none" });
+  const [player1Score, setPlayer1Score] = useState([]);
+  const [player2Score, setPlayer2Score] = useState([]);
   const [squarePlayerTurn, setSquarePlayerTurn] = useState({
     square1Turn: "none",
     square2Turn: "none",
@@ -23,6 +25,73 @@ const App = () => {
     square8Turn: "none",
     square9Turn: "none",
   });
+  
+  const xWinCondition = ["x","x","x"];
+  const oWinCondition = ["o", "o", "o"];
+  const [winningScores, setWinningScores] = useState({
+    score123: [],
+    score456: [],
+    score789: [],
+    score159: [],
+    score357: [],
+    score147: [],
+    score258: [],
+    score369: [],
+  });
+  console.log(winningScores)
+  const winningCondition = () => {
+    if (JSON.stringify(winningScores.score123) === JSON.stringify(xWinCondition)) {
+      return <h1>PLayer 1 wins</h1>;
+    }
+    if (JSON.stringify(winningScores.score123) === JSON.stringify(oWinCondition)) {
+      return <h1>PLayer 2 wins</h1>;
+    } 
+    if (JSON.stringify(winningScores.score456) === JSON.stringify(xWinCondition)) {
+      return <h1>PLayer 1 wins</h1>;
+    }
+    if (JSON.stringify(winningScores.score456) === JSON.stringify(oWinCondition)) {
+      return <h1>PLayer 2 wins</h1>;
+    }
+    if (JSON.stringify(winningScores.score789) === JSON.stringify(xWinCondition)) {
+      return <h1>PLayer 1 wins</h1>;
+    }
+    if (JSON.stringify(winningScores.score789) === JSON.stringify(oWinCondition)) {
+      return <h1>PLayer 2 wins</h1>;
+    }
+    if (JSON.stringify(winningScores.score159) === JSON.stringify(xWinCondition)) {
+      return <h1>PLayer 1 wins</h1>;
+    }
+    if (JSON.stringify(winningScores.score159) === JSON.stringify(oWinCondition)) {
+      return <h1>PLayer 2 wins</h1>;
+    }
+    if (JSON.stringify(winningScores.score357) === JSON.stringify(xWinCondition)) {
+      return <h1>PLayer 1 wins</h1>;
+    }
+    if (JSON.stringify(winningScores.score357) === JSON.stringify(oWinCondition)) {
+      return <h1>PLayer 2 wins</h1>;
+    }
+    if (JSON.stringify(winningScores.score147) === JSON.stringify(xWinCondition)) {
+      return <h1>PLayer 1 wins</h1>;
+    }
+    if (JSON.stringify(winningScores.score147) === JSON.stringify(oWinCondition)) {
+      return <h1>PLayer 2 wins</h1>;
+    }
+    if (JSON.stringify(winningScores.score258) === JSON.stringify(xWinCondition)) {
+      return <h1>PLayer 1 wins</h1>;
+    }
+    if (JSON.stringify(winningScores.score258) === JSON.stringify(oWinCondition)) {
+      return <h1>PLayer 2 wins</h1>;
+    }
+    if (JSON.stringify(winningScores.score369) === JSON.stringify(xWinCondition)) {
+      return <h1>PLayer 1 wins</h1>;
+    }
+    if (JSON.stringify(winningScores.score369) === JSON.stringify(oWinCondition)) {
+      return <h1>PLayer 2 wins</h1>;
+    }
+    else {
+      return <h1>Who will win?</h1>;
+    }
+  };
 
   const playerTurn = () => {
     if (player.turn === "player2") {
@@ -31,10 +100,19 @@ const App = () => {
       return <h1> Player 1(X's) Turn</h1>;
     }
   };
-  console.log(player.turn);
 
   const resetGame = () => {
     setPlayer({ turn: "none" });
+    setWinningScores({
+      score123: [],
+      score456: [],
+      score789: [],
+      score159: [],
+      score357: [],
+      score147: [],
+      score258: [],
+      score369: [],
+    });
     setSquarePlayerTurn({
       square1Turn: "none",
       square2Turn: "none",
@@ -47,10 +125,12 @@ const App = () => {
       square9Turn: "none",
     });
   };
-
+ 
   return (
     <>
+      {winningCondition()}
       <h1>Tic Tac Toe</h1>
+
       {playerTurn()}
       <div className="board">
         <Square1
@@ -58,54 +138,72 @@ const App = () => {
           setPlayer={setPlayer}
           squarePlayerTurn={squarePlayerTurn}
           setSquarePlayerTurn={setSquarePlayerTurn}
+          winningScores={winningScores}
+          setWinningScores={setWinningScores}
         />
         <Square2
           player={player}
           setPlayer={setPlayer}
           squarePlayerTurn={squarePlayerTurn}
           setSquarePlayerTurn={setSquarePlayerTurn}
+          winningScores={winningScores}
+          setWinningScores={setWinningScores}
         />
         <Square3
           player={player}
           setPlayer={setPlayer}
           squarePlayerTurn={squarePlayerTurn}
           setSquarePlayerTurn={setSquarePlayerTurn}
+          winningScores={winningScores}
+          setWinningScores={setWinningScores}
         />
         <Square4
           player={player}
           setPlayer={setPlayer}
           squarePlayerTurn={squarePlayerTurn}
           setSquarePlayerTurn={setSquarePlayerTurn}
+          winningScores={winningScores}
+          setWinningScores={setWinningScores}
         />
         <Square5
           player={player}
           setPlayer={setPlayer}
           squarePlayerTurn={squarePlayerTurn}
           setSquarePlayerTurn={setSquarePlayerTurn}
+          winningScores={winningScores}
+          setWinningScores={setWinningScores}
         />
         <Square6
           player={player}
           setPlayer={setPlayer}
           squarePlayerTurn={squarePlayerTurn}
           setSquarePlayerTurn={setSquarePlayerTurn}
+          winningScores={winningScores}
+          setWinningScores={setWinningScores}
         />
         <Square7
           player={player}
           setPlayer={setPlayer}
           squarePlayerTurn={squarePlayerTurn}
           setSquarePlayerTurn={setSquarePlayerTurn}
+          winningScores={winningScores}
+          setWinningScores={setWinningScores}
         />
         <Square8
           player={player}
           setPlayer={setPlayer}
           squarePlayerTurn={squarePlayerTurn}
           setSquarePlayerTurn={setSquarePlayerTurn}
+          winningScores={winningScores}
+          setWinningScores={setWinningScores}
         />
         <Square9
           player={player}
           setPlayer={setPlayer}
           squarePlayerTurn={squarePlayerTurn}
           setSquarePlayerTurn={setSquarePlayerTurn}
+          winningScores={winningScores}
+          setWinningScores={setWinningScores}
         />
       </div>
       <button onClick={resetGame}>Reset Game</button>

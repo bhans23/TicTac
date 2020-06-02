@@ -7,20 +7,34 @@ const Square9 = ({
   setPlayer,
   squarePlayerTurn,
   setSquarePlayerTurn,
+  winningScores,
+  setWinningScores,
 }) => {
   const { square9Turn } = squarePlayerTurn;
-
+  const { score789, score159,score369 } = winningScores;
   const playerSelect = () => {
-    if (player.turn === "none") {
+    if (player.turn === "none" || "player1") {
       setPlayer({
         turn: "player2",
       });
-
+      setWinningScores({
+        ...winningScores,
+        score789: [...score789, "x"],
+        score159: [...score159, "x"],
+        score369: [...score369, "x"],
+       
+      });
       setSquarePlayerTurn({ ...squarePlayerTurn, square9Turn: "player2" });
     }
     if (player.turn === "player2") {
       setPlayer({
         turn: "player1",
+      });
+      setWinningScores({
+        ...winningScores,
+        score789: [...score789, "o"],
+        score159: [...score159, "o"],
+        score369: [...score369, "o"]
       });
       setSquarePlayerTurn({ ...squarePlayerTurn, square9Turn: "player1" });
     } else {
