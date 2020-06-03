@@ -12,8 +12,8 @@ import Square9 from "./squares/Square9";
 
 const App = () => {
   const [player, setPlayer] = useState({ turn: "none" });
-  const [player1Score, setPlayer1Score] = useState('');
-  const [player2Score, setPlayer2Score] = useState('');
+  const [player1Score, setPlayer1Score] = useState("");
+  const [player2Score, setPlayer2Score] = useState("");
   const [squarePlayerTurn, setSquarePlayerTurn] = useState({
     square1Turn: "none",
     square2Turn: "none",
@@ -29,71 +29,78 @@ const App = () => {
   const xWinCondition = ["x", "x", "x"];
   const oWinCondition = ["o", "o", "o"];
   const [winningScores, setWinningScores] = useState({
-    score123: '',
-    score456: '',
-    score789: '',
-    score159: '',
-    score357: '',
-    score147: '',
-    score258: '',
-    score369: '',
+    score123: "",
+    score456: "",
+    score789: "",
+    score159: "",
+    score357: "",
+    score147: "",
+    score258: "",
+    score369: "",
   });
   console.log(winningScores.score123.length);
   const winningCondition = () => {
+    const player1Win = () => {
+      return <h1 className="player">PLayer 1 wins</h1>;
+    };
+    const player2Win = () => {
+      return <h1 className="player">PLayer 2 wins</h1>;
+    };
+
     if (
       JSON.stringify(winningScores.score123) === JSON.stringify(xWinCondition)
     ) {
-      return <h1 className="player">PLayer 1 wins</h1>;
+      return <>{player1Win()}</>;
     }
     if (
       JSON.stringify(winningScores.score123) === JSON.stringify(oWinCondition)
     ) {
-      return <h1 className="player">PLayer 2 wins</h1>;
+      return <>{player2Win()}</>
     }
     if (
       JSON.stringify(winningScores.score456) === JSON.stringify(xWinCondition)
     ) {
-      return <h1 className="player">PLayer 1 wins</h1>;
+      return <>{player1Win()}</>;
     }
     if (
       JSON.stringify(winningScores.score456) === JSON.stringify(oWinCondition)
     ) {
-      return <h1 className="player">PLayer 2 wins</h1>;
+      return <>{player2Win()}</>
     }
     if (
       JSON.stringify(winningScores.score789) === JSON.stringify(xWinCondition)
     ) {
-      return <h1 className="player">PLayer 1 wins</h1>;
+      return <>{player1Win()}</>;
     }
     if (
       JSON.stringify(winningScores.score789) === JSON.stringify(oWinCondition)
     ) {
-      return <h1 className="player">PLayer 2 wins</h1>;
+      return <>{player2Win()}</>
     }
     if (
       JSON.stringify(winningScores.score159) === JSON.stringify(xWinCondition)
     ) {
-      return <h1 className="player">PLayer 1 wins</h1>;
+      return <>{player1Win()}</>;
     }
     if (
       JSON.stringify(winningScores.score159) === JSON.stringify(oWinCondition)
     ) {
-      return <h1 className="player">PLayer 2 wins</h1>;
+      return <>{player2Win()}</>
     }
     if (
       JSON.stringify(winningScores.score357) === JSON.stringify(xWinCondition)
     ) {
-      return <h1 className="player">PLayer 1 wins</h1>;
+      return <>{player1Win()}</>;
     }
     if (
       JSON.stringify(winningScores.score357) === JSON.stringify(oWinCondition)
     ) {
-      return <h1 className="player">PLayer 2 wins</h1>;
+      return <>{player2Win()}</>
     }
     if (
       JSON.stringify(winningScores.score147) === JSON.stringify(xWinCondition)
     ) {
-      return <h1 className="player">PLayer 1 wins</h1>;
+      return <>{player1Win()}</>;
     }
     if (
       JSON.stringify(winningScores.score147) === JSON.stringify(oWinCondition)
@@ -103,34 +110,34 @@ const App = () => {
     if (
       JSON.stringify(winningScores.score258) === JSON.stringify(xWinCondition)
     ) {
-      return <h1 className="player">PLayer 1 wins</h1>;
+      return <>{player1Win()}</>;
     }
     if (
       JSON.stringify(winningScores.score258) === JSON.stringify(oWinCondition)
     ) {
-      return <h1 className="player">PLayer 2 wins</h1>;
+      return <>{player2Win()}</>
     }
     if (
       JSON.stringify(winningScores.score369) === JSON.stringify(xWinCondition)
     ) {
-      return <h1 className="player">PLayer 1 wins</h1>;
+      return <>{player1Win()}</>;
     }
     if (
       JSON.stringify(winningScores.score369) === JSON.stringify(oWinCondition)
     ) {
-      return <h1 className="player">PLayer 2 wins</h1>;
+      return <>{player2Win()}</>
     }
     if (
-      winningScores.score123.length === 3 && 
+      winningScores.score123.length === 3 &&
       winningScores.score456.length === 3 &&
       winningScores.score789.length === 3 &&
       winningScores.score159.length === 3 &&
       winningScores.score357.length === 3 &&
       winningScores.score147.length === 3 &&
       winningScores.score258.length === 3 &&
-      winningScores.score369.length === 3)
-     {
-      return <h1>Tie</h1>
+      winningScores.score369.length === 3
+    ) {
+      return <h1>Tie</h1>;
     } else {
       return <h1>Who will win?</h1>;
     }
@@ -147,14 +154,14 @@ const App = () => {
   const resetGame = () => {
     setPlayer({ turn: "none" });
     setWinningScores({
-      score123: '',
-      score456: '',
-      score789: '',
-      score159: '',
-      score357: '',
-      score147: '',
-      score258: '',
-      score369: '',
+      score123: "",
+      score456: "",
+      score789: "",
+      score159: "",
+      score357: "",
+      score147: "",
+      score258: "",
+      score369: "",
     });
     setSquarePlayerTurn({
       square1Turn: "none",
