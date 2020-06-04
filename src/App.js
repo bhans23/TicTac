@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./App.css";
+import WinningModal from "./components/WinningModal";
 import Square1 from "./squares/Square1";
 import Square2 from "./squares/Square2";
 import Square3 from "./squares/Square3";
@@ -12,8 +13,10 @@ import Square9 from "./squares/Square9";
 
 const App = () => {
   const [player, setPlayer] = useState({ turn: "none" });
+  const [gameResults, setGameResults] = useState("");
   const [player1Score, setPlayer1Score] = useState("");
   const [player2Score, setPlayer2Score] = useState("");
+
   const [squarePlayerTurn, setSquarePlayerTurn] = useState({
     square1Turn: "none",
     square2Turn: "none",
@@ -38,94 +41,87 @@ const App = () => {
     score258: "",
     score369: "",
   });
-  console.log(winningScores.score123.length);
-  const winningCondition = () => {
-    const player1Win = () => {
-      return <h1 className="player">PLayer 1 wins</h1>;
-    };
-    const player2Win = () => {
-      return <h1 className="player">PLayer 2 wins</h1>;
-    };
 
+  const winningCondition = () => {
     if (
       JSON.stringify(winningScores.score123) === JSON.stringify(xWinCondition)
     ) {
-      return <>{player1Win()}</>;
+      // setGameResults("player1");
     }
     if (
       JSON.stringify(winningScores.score123) === JSON.stringify(oWinCondition)
     ) {
-      return <>{player2Win()}</>
+      setGameResults("player2");
     }
     if (
       JSON.stringify(winningScores.score456) === JSON.stringify(xWinCondition)
     ) {
-      return <>{player1Win()}</>;
+      // setGameResults("player1");
     }
     if (
       JSON.stringify(winningScores.score456) === JSON.stringify(oWinCondition)
     ) {
-      return <>{player2Win()}</>
+      setGameResults("player2");
     }
     if (
       JSON.stringify(winningScores.score789) === JSON.stringify(xWinCondition)
     ) {
-      return <>{player1Win()}</>;
+      // setGameResults("player1");
     }
     if (
       JSON.stringify(winningScores.score789) === JSON.stringify(oWinCondition)
     ) {
-      return <>{player2Win()}</>
+      setGameResults("player2");
     }
     if (
       JSON.stringify(winningScores.score159) === JSON.stringify(xWinCondition)
     ) {
-      return <>{player1Win()}</>;
+      // setGameResults("player1");
     }
     if (
       JSON.stringify(winningScores.score159) === JSON.stringify(oWinCondition)
     ) {
-      return <>{player2Win()}</>
+      setGameResults("player2");
     }
     if (
       JSON.stringify(winningScores.score357) === JSON.stringify(xWinCondition)
     ) {
-      return <>{player1Win()}</>;
+      // setGameResults("player1");
     }
     if (
       JSON.stringify(winningScores.score357) === JSON.stringify(oWinCondition)
     ) {
-      return <>{player2Win()}</>
+      setGameResults("player2");
     }
     if (
       JSON.stringify(winningScores.score147) === JSON.stringify(xWinCondition)
     ) {
-      return <>{player1Win()}</>;
+      // setGameResults("player1");
     }
     if (
       JSON.stringify(winningScores.score147) === JSON.stringify(oWinCondition)
     ) {
-      return <h1 className="player"> PLayer 2 wins</h1>;
+      setGameResults("player2");
     }
     if (
       JSON.stringify(winningScores.score258) === JSON.stringify(xWinCondition)
     ) {
-      return <>{player1Win()}</>;
+      // setGameResults("player1");
     }
     if (
       JSON.stringify(winningScores.score258) === JSON.stringify(oWinCondition)
     ) {
-      return <>{player2Win()}</>
+      setGameResults("player2");
     }
     if (
       JSON.stringify(winningScores.score369) === JSON.stringify(xWinCondition)
     ) {
-      return <>{player1Win()}</>;
+      // setGameResults("player1");
     }
     if (
       JSON.stringify(winningScores.score369) === JSON.stringify(oWinCondition)
     ) {
-      return <>{player2Win()}</>
+      setGameResults("player2");
     }
     if (
       winningScores.score123.length === 3 &&
@@ -137,9 +133,14 @@ const App = () => {
       winningScores.score258.length === 3 &&
       winningScores.score369.length === 3
     ) {
-      return <h1>Tie</h1>;
+      setGameResults("tie");
     } else {
-      return <h1>Who will win?</h1>;
+      return (
+        <>
+           
+          <h1>Who will win?</h1>;
+        </>
+      );
     }
   };
 
@@ -152,6 +153,7 @@ const App = () => {
   };
 
   const resetGame = () => {
+    // setGameResults("");
     setPlayer({ turn: "none" });
     setWinningScores({
       score123: "",
@@ -178,6 +180,7 @@ const App = () => {
 
   return (
     <>
+      {/* <WinningModal gameResults={gameResults} /> */}
       {winningCondition()}
       <h1>Tic Tac Toe</h1>
 
