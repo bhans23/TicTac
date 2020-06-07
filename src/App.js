@@ -13,10 +13,9 @@ import Square9 from "./squares/Square9";
 
 const App = () => {
   const [player, setPlayer] = useState({ turn: "none" });
-  const [gameResults, setGameResults] = useState("");
   const [player1Score, setPlayer1Score] = useState("");
   const [player2Score, setPlayer2Score] = useState("");
-
+  const [gameResults, setGameResults] = useState("");
   const [squarePlayerTurn, setSquarePlayerTurn] = useState({
     square1Turn: "none",
     square2Turn: "none",
@@ -46,7 +45,8 @@ const App = () => {
     if (
       JSON.stringify(winningScores.score123) === JSON.stringify(xWinCondition)
     ) {
-      // setGameResults("player1");
+      setGameResults("player1");
+      
     }
     if (
       JSON.stringify(winningScores.score123) === JSON.stringify(oWinCondition)
@@ -61,7 +61,7 @@ const App = () => {
     if (
       JSON.stringify(winningScores.score456) === JSON.stringify(oWinCondition)
     ) {
-      setGameResults("player2");
+      // setGameResults("player2");
     }
     if (
       JSON.stringify(winningScores.score789) === JSON.stringify(xWinCondition)
@@ -71,7 +71,7 @@ const App = () => {
     if (
       JSON.stringify(winningScores.score789) === JSON.stringify(oWinCondition)
     ) {
-      setGameResults("player2");
+      // setGameResults("player2");
     }
     if (
       JSON.stringify(winningScores.score159) === JSON.stringify(xWinCondition)
@@ -81,7 +81,7 @@ const App = () => {
     if (
       JSON.stringify(winningScores.score159) === JSON.stringify(oWinCondition)
     ) {
-      setGameResults("player2");
+      // setGameResults("player2");
     }
     if (
       JSON.stringify(winningScores.score357) === JSON.stringify(xWinCondition)
@@ -91,7 +91,7 @@ const App = () => {
     if (
       JSON.stringify(winningScores.score357) === JSON.stringify(oWinCondition)
     ) {
-      setGameResults("player2");
+      // setGameResults("player2");
     }
     if (
       JSON.stringify(winningScores.score147) === JSON.stringify(xWinCondition)
@@ -101,7 +101,7 @@ const App = () => {
     if (
       JSON.stringify(winningScores.score147) === JSON.stringify(oWinCondition)
     ) {
-      setGameResults("player2");
+      // setGameResults("player2");
     }
     if (
       JSON.stringify(winningScores.score258) === JSON.stringify(xWinCondition)
@@ -111,7 +111,7 @@ const App = () => {
     if (
       JSON.stringify(winningScores.score258) === JSON.stringify(oWinCondition)
     ) {
-      setGameResults("player2");
+      // setGameResults("player2");
     }
     if (
       JSON.stringify(winningScores.score369) === JSON.stringify(xWinCondition)
@@ -121,7 +121,7 @@ const App = () => {
     if (
       JSON.stringify(winningScores.score369) === JSON.stringify(oWinCondition)
     ) {
-      setGameResults("player2");
+      // setGameResults("player2");
     }
     if (
       winningScores.score123.length === 3 &&
@@ -133,12 +133,11 @@ const App = () => {
       winningScores.score258.length === 3 &&
       winningScores.score369.length === 3
     ) {
-      setGameResults("tie");
+      // setGameResults("tie");
     } else {
       return (
         <>
-           
-          <h1>Who will win?</h1>;
+          <h1>Who will win?</h1>
         </>
       );
     }
@@ -177,11 +176,16 @@ const App = () => {
       square9Turn: "none",
     });
   };
-
+  const winning = () => {
+    if (gameResults === "") {
+      return winningCondition();
+    } else {
+      return <WinningModal gameResults={gameResults}/>;
+    }
+  };
   return (
     <>
-      {/* <WinningModal gameResults={gameResults} /> */}
-      {winningCondition()}
+      {winning()}
       <h1>Tic Tac Toe</h1>
 
       {playerTurn()}
