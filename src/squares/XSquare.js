@@ -2,9 +2,9 @@ import React from "react";
 
 const XSquare = () => {
   return (
-    <div>
-      <h1>X</h1>
-    </div>
+    
+      <h1 className="xSquare">X</h1>
+    
   );
 };
 

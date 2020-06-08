@@ -3,6 +3,8 @@ const useWinningConditions = () => {
   const [gameResults, setGameResults] = useState("");
   const xWinCondition = ["x", "x", "x"];
   const oWinCondition = ["o", "o", "o"];
+  const [player1Score, setPlayer1Score] = useState(0);
+  const [player2Score, setPlayer2Score] = useState(0);
   const [winningScores, setWinningScores] = useState({
     score123: "",
     score456: "",
@@ -19,81 +21,97 @@ const useWinningConditions = () => {
       JSON.stringify(winningScores.score123) === JSON.stringify(xWinCondition)
     ) {
       setGameResults("player1");
+      setPlayer1Score(player1Score + 1)
     }
     if (
       JSON.stringify(winningScores.score123) === JSON.stringify(oWinCondition)
     ) {
       setGameResults("player2");
+      setPlayer2Score(player2Score + 1)
     }
     if (
       JSON.stringify(winningScores.score456) === JSON.stringify(xWinCondition)
     ) {
       setGameResults("player1");
+      setPlayer1Score(player1Score + 1)
     }
     if (
       JSON.stringify(winningScores.score456) === JSON.stringify(oWinCondition)
     ) {
       setGameResults("player2");
+      setPlayer2Score(player2Score + 1)
     }
     if (
       JSON.stringify(winningScores.score789) === JSON.stringify(xWinCondition)
     ) {
       setGameResults("player1");
+      setPlayer1Score(player1Score + 1)
     }
     if (
       JSON.stringify(winningScores.score789) === JSON.stringify(oWinCondition)
     ) {
       setGameResults("player2");
+      setPlayer2Score(player2Score + 1)
     }
     if (
       JSON.stringify(winningScores.score159) === JSON.stringify(xWinCondition)
     ) {
       setGameResults("player1");
+      setPlayer1Score(player1Score + 1)
     }
     if (
       JSON.stringify(winningScores.score159) === JSON.stringify(oWinCondition)
     ) {
       setGameResults("player2");
+      setPlayer2Score(player2Score + 1)
     }
     if (
       JSON.stringify(winningScores.score357) === JSON.stringify(xWinCondition)
     ) {
       setGameResults("player1");
+      setPlayer1Score(player1Score + 1)
     }
     if (
       JSON.stringify(winningScores.score357) === JSON.stringify(oWinCondition)
     ) {
       setGameResults("player2");
+      setPlayer2Score(player2Score + 1)
     }
     if (
       JSON.stringify(winningScores.score147) === JSON.stringify(xWinCondition)
     ) {
       setGameResults("player1");
+      setPlayer1Score(player1Score + 1)
     }
     if (
       JSON.stringify(winningScores.score147) === JSON.stringify(oWinCondition)
     ) {
       setGameResults("player2");
+      setPlayer2Score(player2Score + 1)
     }
     if (
       JSON.stringify(winningScores.score258) === JSON.stringify(xWinCondition)
     ) {
       setGameResults("player1");
+      setPlayer1Score(player1Score + 1)
     }
     if (
       JSON.stringify(winningScores.score258) === JSON.stringify(oWinCondition)
     ) {
       setGameResults("player2");
+      setPlayer2Score(player2Score + 1)
     }
     if (
       JSON.stringify(winningScores.score369) === JSON.stringify(xWinCondition)
     ) {
       setGameResults("player1");
+      setPlayer1Score(player1Score + 1)
     }
     if (
       JSON.stringify(winningScores.score369) === JSON.stringify(oWinCondition)
     ) {
       setGameResults("player2");
+      setPlayer2Score(player2Score + 1)
     }
     if (
       winningScores.score123.length === 3 &&
@@ -125,7 +143,7 @@ const useWinningConditions = () => {
     } else {
       return (
         <>
-          <h1>Who will win?</h1>
+          
         </>
       );
     }
@@ -137,6 +155,10 @@ const useWinningConditions = () => {
     winningScores,
     setWinningScores,
     winningCondition,
+    setPlayer1Score,
+    setPlayer2Score,
+    player1Score,
+    player2Score
   };
 };
 

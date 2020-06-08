@@ -1,22 +1,24 @@
 import React, { useState } from "react";
 import "./App.css";
+import GameBoard from "./components/GameBoard";
 import WinningModal from "./components/WinningModal";
-import useWinningConditions from './components/useWinningConditions';
-import Square1 from "./squares/Square1";
-import Square2 from "./squares/Square2";
-import Square3 from "./squares/Square3";
-import Square4 from "./squares/Square4";
-import Square5 from "./squares/Square5";
-import Square6 from "./squares/Square6";
-import Square7 from "./squares/Square7";
-import Square8 from "./squares/Square8";
-import Square9 from "./squares/Square9";
+import useWinningConditions from "./components/useWinningConditions";
+import PlayerScores from './components/PlayerScores';
 
 const App = () => {
   const [player, setPlayer] = useState({ turn: "none" });
-  const [player1Score, setPlayer1Score] = useState("");
-  const [player2Score, setPlayer2Score] = useState("");
-  const {gameResults,setGameResults,winningScores, setWinningScores, winningCondition} = useWinningConditions();
+  
+  const {
+    gameResults,
+    setGameResults,
+    winningScores,
+    setWinningScores,
+    winningCondition,
+    setPlayer1Score,
+    setPlayer2Score,
+    player1Score,
+    player2Score
+  } = useWinningConditions();
   const [squarePlayerTurn, setSquarePlayerTurn] = useState({
     square1Turn: "none",
     square2Turn: "none",
@@ -31,12 +33,16 @@ const App = () => {
 
   const playerTurn = () => {
     if (player.turn === "player2") {
-      return <h1> Player 2(O's) Turn</h1>;
+      return <h1 className="players-turn"> Player 2(O's) Turn</h1>;
     } else {
-      return <h1> Player 1(X's) Turn</h1>;
+      return <h1 className="players-turn"> Player 1(X's) Turn</h1>;
     }
   };
-
+  
+  const resetScores = () => {
+    setPlayer2Score(0)
+    setPlayer1Score(0)
+  }
   const resetGame = () => {
     setGameResults("");
     setPlayer({ turn: "none" });
@@ -70,87 +76,22 @@ const App = () => {
     }
   };
   return (
-    <>
+    <div className="game">
       {winning()}
-      <h1>Tic Tac Toe</h1>
-
+      <h1 className="title">Tic Tac Toe</h1>
+      <PlayerScores player1Score={player1Score} player2Score={player2Score}/>
       {playerTurn()}
-      <div className="board">
-        <Square1
-          player={player}
-          setPlayer={setPlayer}
-          squarePlayerTurn={squarePlayerTurn}
-          setSquarePlayerTurn={setSquarePlayerTurn}
-          winningScores={winningScores}
-          setWinningScores={setWinningScores}
-        />
-        <Square2
-          player={player}
-          setPlayer={setPlayer}
-          squarePlayerTurn={squarePlayerTurn}
-          setSquarePlayerTurn={setSquarePlayerTurn}
-          winningScores={winningScores}
-          setWinningScores={setWinningScores}
-        />
-        <Square3
-          player={player}
-          setPlayer={setPlayer}
-          squarePlayerTurn={squarePlayerTurn}
-          setSquarePlayerTurn={setSquarePlayerTurn}
-          winningScores={winningScores}
-          setWinningScores={setWinningScores}
-        />
-        <Square4
-          player={player}
-          setPlayer={setPlayer}
-          squarePlayerTurn={squarePlayerTurn}
-          setSquarePlayerTurn={setSquarePlayerTurn}
-          winningScores={winningScores}
-          setWinningScores={setWinningScores}
-        />
-        <Square5
-          player={player}
-          setPlayer={setPlayer}
-          squarePlayerTurn={squarePlayerTurn}
-          setSquarePlayerTurn={setSquarePlayerTurn}
-          winningScores={winningScores}
-          setWinningScores={setWinningScores}
-        />
-        <Square6
-          player={player}
-          setPlayer={setPlayer}
-          squarePlayerTurn={squarePlayerTurn}
-          setSquarePlayerTurn={setSquarePlayerTurn}
-          winningScores={winningScores}
-          setWinningScores={setWinningScores}
-        />
-        <Square7
-          player={player}
-          setPlayer={setPlayer}
-          squarePlayerTurn={squarePlayerTurn}
-          setSquarePlayerTurn={setSquarePlayerTurn}
-          winningScores={winningScores}
-          setWinningScores={setWinningScores}
-        />
-        <Square8
-          player={player}
-          setPlayer={setPlayer}
-          squarePlayerTurn={squarePlayerTurn}
-          setSquarePlayerTurn={setSquarePlayerTurn}
-          winningScores={winningScores}
-          setWinningScores={setWinningScores}
-        />
-        <Square9
-          player={player}
-          setPlayer={setPlayer}
-          squarePlayerTurn={squarePlayerTurn}
-          setSquarePlayerTurn={setSquarePlayerTurn}
-          winningScores={winningScores}
-          setWinningScores={setWinningScores}
-        />
-      </div>
+      <GameBoard
+        player={player}
+        setPlayer={setPlayer}
+        squarePlayerTurn={squarePlayerTurn}
+        setSquarePlayerTurn={setSquarePlayerTurn}
+        winningScores={winningScores}
+        setWinningScores={setWinningScores}
+      />
+
       <button onClick={resetGame}>Reset Game</button>
-    </>
+    </div>
   );
 };
 
