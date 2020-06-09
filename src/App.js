@@ -79,7 +79,11 @@ const App = () => {
   return (
     <div className="game">
       {winning()}
-      <h1 className="title">Tic Tac Toe</h1>
+      <div className="title">
+        <h1 className="tic">Tic</h1>
+        <h1 className="tac">Tac</h1>
+        <h1 className="toe">Toe</h1>
+      </div>
       <PlayerScores player1Score={player1Score} player2Score={player2Score} />
       {playerTurn()}
       <GameBoard

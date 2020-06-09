@@ -99,9 +99,7 @@ code {
 }
 
 .players-score {
-  background-image: url("./pictures/board.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
+  
   display: flex;
   justify-content: space-evenly;
   background-color: rgba(110, 150, 59, 0.5);
@@ -126,26 +124,98 @@ code {
 }
 
 .title {
+  margin: 10px;
   border: outset;
   background-color: rgba(110, 150, 59, 0.5);
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  text-shadow: 2px 2px 5px green;
-  position: relative;
-  animation-name: turn-zoom;
-  animation-duration: 2s;
-  background-image: url("./pictures/board.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
 }
 
-@keyframes turn-zoom {
+.tic {
+  position: relative;
+  margin: 0 0 0 0;
+  text-shadow: 2px 2px 5px red;
+  animation-name: tic-zoom;
+  animation-duration: 7s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes tic-zoom {
   0% {
-    left: -1000px;
-    top: 0px;
+    left: 0px;
+    top: -100px;
   }
-  100% {
+  25% {
     left: 0px;
     top: 0px;
+  }
+  90% {
+    left: 0px;
+    top: 0px;
+  }
+  100% { left: 0px;
+    top: -100px;
+  }
+}
+
+.tac {
+  position: relative;
+  margin: 0 0 0 0;
+  text-shadow: 2px 2px 5px blue;
+  animation-name: tac-zoom;
+  animation-duration: 7s;
+  animation-iteration-count: infinite;
+  
+
+}
+
+@keyframes tac-zoom {
+  0% {
+    left: 0px;
+    top: -250px;
+  }
+  25% {
+    left: 0px;
+    top: 0px;
+  }
+  90% {
+    left: 0px;
+    top: 0px;
+  }
+  100% { left: 0px;
+    top: -250px;
+  }
+}
+
+.toe {
+  position: relative;
+  margin: 0 0 0 0;
+  text-shadow: 2px 2px 5px green;
+  animation-name: toe-zoom;
+  animation-duration: 7s;
+  animation-iteration-count: infinite;
+
+}
+
+@keyframes toe-zoom {
+  0% {
+    left:0px;
+    top: -500px;
+  }
+  25% {
+    left: 0px;
+    top: 0px;
+  }
+  90% {
+    left:0px;
+    top: 0px;
+
+  }
+  100% {
+    left:0px;
+    top: -500px;
   }
 }
 .player1-turn {
