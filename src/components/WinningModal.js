@@ -5,8 +5,8 @@ const WinningModal = ({ gameResults, resetGame }) => {
     return (
       <div className="modal">
         <div className="modal-main">
-          <h1>Player 1 Wins!</h1>
-          <button onClick={resetGame}> Reset Game</button>
+          <h1 className="player1-win">Player 1 Wins!</h1>
+          <button onClick={resetGame}> Play Again</button>
         </div>
       </div>
     );
@@ -15,8 +15,8 @@ const WinningModal = ({ gameResults, resetGame }) => {
     return (
       <div className="modal">
         <div className="modal-main">
-          <h1>Player 2 Wins!</h1>
-          <button onClick={resetGame}> Reset Game</button>
+          <h1 className="player2-win">Player 2 Wins!</h1>
+          <button onClick={resetGame}> Play Again</button>
         </div>
       </div>
     );
@@ -25,8 +25,8 @@ const WinningModal = ({ gameResults, resetGame }) => {
     return (
       <div className="modal">
         <div className="modal-main">
-          <h1>Tie</h1>
-          <button onClick={resetGame}> Reset Game</button>
+          <h1 className="tie">Tie</h1>
+          <button onClick={resetGame}> Play Again</button>
         </div>
       </div>
     );

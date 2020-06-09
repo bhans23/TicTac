@@ -3,7 +3,8 @@ import "./App.css";
 import GameBoard from "./components/GameBoard";
 import WinningModal from "./components/WinningModal";
 import useWinningConditions from "./components/useWinningConditions";
-import PlayerScores from './components/PlayerScores';
+import PlayerScores from "./components/PlayerScores";
+
 
 const App = () => {
   const [player, setPlayer] = useState({ turn: "none" });
@@ -17,7 +18,7 @@ const App = () => {
     setPlayer1Score,
     setPlayer2Score,
     player1Score,
-    player2Score
+    player2Score,
   } = useWinningConditions();
   const [squarePlayerTurn, setSquarePlayerTurn] = useState({
     square1Turn: "none",
@@ -33,16 +34,16 @@ const App = () => {
 
   const playerTurn = () => {
     if (player.turn === "player2") {
-      return <h1 className="players-turn"> Player 2(O's) Turn</h1>;
+      return <h1 className="player2-turn"> Player 2(O's) Turn</h1>;
     } else {
-      return <h1 className="players-turn"> Player 1(X's) Turn</h1>;
+      return <h1 className="player1-turn"> Player 1(X's) Turn</h1>;
     }
   };
-  
+
   const resetScores = () => {
-    setPlayer2Score(0)
-    setPlayer1Score(0)
-  }
+    setPlayer2Score(0);
+    setPlayer1Score(0);
+  };
   const resetGame = () => {
     setGameResults("");
     setPlayer({ turn: "none" });
@@ -79,7 +80,7 @@ const App = () => {
     <div className="game">
       {winning()}
       <h1 className="title">Tic Tac Toe</h1>
-      <PlayerScores player1Score={player1Score} player2Score={player2Score}/>
+      <PlayerScores player1Score={player1Score} player2Score={player2Score} />
       {playerTurn()}
       <GameBoard
         player={player}
@@ -90,7 +91,10 @@ const App = () => {
         setWinningScores={setWinningScores}
       />
 
-      <button onClick={resetGame}>Reset Game</button>
+      <button onClick={resetScores}>Reset Scores</button>
+      
+      
+     
     </div>
   );
 };
