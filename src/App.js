@@ -5,10 +5,10 @@ import WinningModal from "./components/WinningModal";
 import useWinningConditions from "./components/useWinningConditions";
 import PlayerScores from "./components/PlayerScores";
 
-
 const App = () => {
   const [player, setPlayer] = useState({ turn: "none" });
-  
+  const [gameType, setGameType] = useState("");
+
   const {
     gameResults,
     setGameResults,
@@ -19,6 +19,8 @@ const App = () => {
     setPlayer2Score,
     player1Score,
     player2Score,
+    aImoves,
+    setAIMoves,
   } = useWinningConditions();
   const [squarePlayerTurn, setSquarePlayerTurn] = useState({
     square1Turn: "none",
@@ -37,6 +39,43 @@ const App = () => {
       return <h1 className="player2-turn"> Player 2(O's) Turn</h1>;
     } else {
       return <h1 className="player1-turn"> Player 1(X's) Turn</h1>;
+    }
+  };
+
+  const titleScreen = () => {
+    if (gameType === "human") {
+      return (
+        <div>
+          <PlayerScores
+            player1Score={player1Score}
+            player2Score={player2Score}
+          />
+
+          {playerTurn()}
+          <GameBoard
+            player={player}
+            setPlayer={setPlayer}
+            squarePlayerTurn={squarePlayerTurn}
+            setSquarePlayerTurn={setSquarePlayerTurn}
+            winningScores={winningScores}
+            setWinningScores={setWinningScores}
+          />
+
+          <button onClick={resetScores}>Reset Scores</button>
+        </div>
+      );
+    }
+    if (gameType === "cpu") {
+
+
+    } else {
+      return (
+        <div>
+          <h2>Please Select game mode</h2>
+          <button onClick={() => setGameType("cpu")}>Vs CPU</button>
+          <button onClick={() => setGameType("human")}>Vs Human</button>
+        </div>
+      );
     }
   };
 
@@ -84,21 +123,7 @@ const App = () => {
         <h1 className="tac">Tac</h1>
         <h1 className="toe">Toe</h1>
       </div>
-      <PlayerScores player1Score={player1Score} player2Score={player2Score} />
-      {playerTurn()}
-      <GameBoard
-        player={player}
-        setPlayer={setPlayer}
-        squarePlayerTurn={squarePlayerTurn}
-        setSquarePlayerTurn={setSquarePlayerTurn}
-        winningScores={winningScores}
-        setWinningScores={setWinningScores}
-      />
-
-      <button onClick={resetScores}>Reset Scores</button>
-      
-      
-     
+      {titleScreen()}
     </div>
   );
 };

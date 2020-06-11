@@ -86,7 +86,7 @@ const Square1 = ({
     return <div className="square">{finalSelect()}</div>;
   };
 
-  return <>{buttonSquare()}</>;
+  return <>{finalSelect()}</>;
 };
 
 export default Square1;

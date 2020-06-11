@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 const useWinningConditions = () => {
+  const [aIMoves, setAIMoves] = useState([1, 2, 3, 4, 5, 6, 7, 8, 9]);
   const [gameResults, setGameResults] = useState("");
   const xWinCondition = ["x", "x", "x"];
   const oWinCondition = ["o", "o", "o"];
@@ -21,97 +22,97 @@ const useWinningConditions = () => {
       JSON.stringify(winningScores.score123) === JSON.stringify(xWinCondition)
     ) {
       setGameResults("player1");
-      setPlayer1Score(player1Score + 1)
+      setPlayer1Score(player1Score + 1);
     }
     if (
       JSON.stringify(winningScores.score123) === JSON.stringify(oWinCondition)
     ) {
       setGameResults("player2");
-      setPlayer2Score(player2Score + 1)
+      setPlayer2Score(player2Score + 1);
     }
     if (
       JSON.stringify(winningScores.score456) === JSON.stringify(xWinCondition)
     ) {
       setGameResults("player1");
-      setPlayer1Score(player1Score + 1)
+      setPlayer1Score(player1Score + 1);
     }
     if (
       JSON.stringify(winningScores.score456) === JSON.stringify(oWinCondition)
     ) {
       setGameResults("player2");
-      setPlayer2Score(player2Score + 1)
+      setPlayer2Score(player2Score + 1);
     }
     if (
       JSON.stringify(winningScores.score789) === JSON.stringify(xWinCondition)
     ) {
       setGameResults("player1");
-      setPlayer1Score(player1Score + 1)
+      setPlayer1Score(player1Score + 1);
     }
     if (
       JSON.stringify(winningScores.score789) === JSON.stringify(oWinCondition)
     ) {
       setGameResults("player2");
-      setPlayer2Score(player2Score + 1)
+      setPlayer2Score(player2Score + 1);
     }
     if (
       JSON.stringify(winningScores.score159) === JSON.stringify(xWinCondition)
     ) {
       setGameResults("player1");
-      setPlayer1Score(player1Score + 1)
+      setPlayer1Score(player1Score + 1);
     }
     if (
       JSON.stringify(winningScores.score159) === JSON.stringify(oWinCondition)
     ) {
       setGameResults("player2");
-      setPlayer2Score(player2Score + 1)
+      setPlayer2Score(player2Score + 1);
     }
     if (
       JSON.stringify(winningScores.score357) === JSON.stringify(xWinCondition)
     ) {
       setGameResults("player1");
-      setPlayer1Score(player1Score + 1)
+      setPlayer1Score(player1Score + 1);
     }
     if (
       JSON.stringify(winningScores.score357) === JSON.stringify(oWinCondition)
     ) {
       setGameResults("player2");
-      setPlayer2Score(player2Score + 1)
+      setPlayer2Score(player2Score + 1);
     }
     if (
       JSON.stringify(winningScores.score147) === JSON.stringify(xWinCondition)
     ) {
       setGameResults("player1");
-      setPlayer1Score(player1Score + 1)
+      setPlayer1Score(player1Score + 1);
     }
     if (
       JSON.stringify(winningScores.score147) === JSON.stringify(oWinCondition)
     ) {
       setGameResults("player2");
-      setPlayer2Score(player2Score + 1)
+      setPlayer2Score(player2Score + 1);
     }
     if (
       JSON.stringify(winningScores.score258) === JSON.stringify(xWinCondition)
     ) {
       setGameResults("player1");
-      setPlayer1Score(player1Score + 1)
+      setPlayer1Score(player1Score + 1);
     }
     if (
       JSON.stringify(winningScores.score258) === JSON.stringify(oWinCondition)
     ) {
       setGameResults("player2");
-      setPlayer2Score(player2Score + 1)
+      setPlayer2Score(player2Score + 1);
     }
     if (
       JSON.stringify(winningScores.score369) === JSON.stringify(xWinCondition)
     ) {
       setGameResults("player1");
-      setPlayer1Score(player1Score + 1)
+      setPlayer1Score(player1Score + 1);
     }
     if (
       JSON.stringify(winningScores.score369) === JSON.stringify(oWinCondition)
     ) {
       setGameResults("player2");
-      setPlayer2Score(player2Score + 1)
+      setPlayer2Score(player2Score + 1);
     }
     if (
       winningScores.score123.length === 3 &&
@@ -122,30 +123,41 @@ const useWinningConditions = () => {
       winningScores.score147.length === 3 &&
       winningScores.score258.length === 3 &&
       winningScores.score369.length === 3 &&
-      JSON.stringify(winningScores.score123) !== JSON.stringify(xWinCondition) &&
-      JSON.stringify(winningScores.score123) !== JSON.stringify(oWinCondition) &&
-      JSON.stringify(winningScores.score456) !== JSON.stringify(xWinCondition) &&
-      JSON.stringify(winningScores.score456) !== JSON.stringify(oWinCondition) &&
-      JSON.stringify(winningScores.score789) !== JSON.stringify(xWinCondition) &&
-      JSON.stringify(winningScores.score789) !== JSON.stringify(oWinCondition) &&
-      JSON.stringify(winningScores.score159) !== JSON.stringify(xWinCondition) &&
-      JSON.stringify(winningScores.score159) !== JSON.stringify(oWinCondition) &&
-      JSON.stringify(winningScores.score357) !== JSON.stringify(xWinCondition) &&
-      JSON.stringify(winningScores.score357) !== JSON.stringify(oWinCondition) &&
-      JSON.stringify(winningScores.score147) !== JSON.stringify(xWinCondition) &&
-      JSON.stringify(winningScores.score147) !== JSON.stringify(oWinCondition) &&
-      JSON.stringify(winningScores.score258) !== JSON.stringify(xWinCondition) &&
-      JSON.stringify(winningScores.score258) !== JSON.stringify(oWinCondition) &&
-      JSON.stringify(winningScores.score369) !== JSON.stringify(xWinCondition) &&
+      JSON.stringify(winningScores.score123) !==
+        JSON.stringify(xWinCondition) &&
+      JSON.stringify(winningScores.score123) !==
+        JSON.stringify(oWinCondition) &&
+      JSON.stringify(winningScores.score456) !==
+        JSON.stringify(xWinCondition) &&
+      JSON.stringify(winningScores.score456) !==
+        JSON.stringify(oWinCondition) &&
+      JSON.stringify(winningScores.score789) !==
+        JSON.stringify(xWinCondition) &&
+      JSON.stringify(winningScores.score789) !==
+        JSON.stringify(oWinCondition) &&
+      JSON.stringify(winningScores.score159) !==
+        JSON.stringify(xWinCondition) &&
+      JSON.stringify(winningScores.score159) !==
+        JSON.stringify(oWinCondition) &&
+      JSON.stringify(winningScores.score357) !==
+        JSON.stringify(xWinCondition) &&
+      JSON.stringify(winningScores.score357) !==
+        JSON.stringify(oWinCondition) &&
+      JSON.stringify(winningScores.score147) !==
+        JSON.stringify(xWinCondition) &&
+      JSON.stringify(winningScores.score147) !==
+        JSON.stringify(oWinCondition) &&
+      JSON.stringify(winningScores.score258) !==
+        JSON.stringify(xWinCondition) &&
+      JSON.stringify(winningScores.score258) !==
+        JSON.stringify(oWinCondition) &&
+      JSON.stringify(winningScores.score369) !==
+        JSON.stringify(xWinCondition) &&
       JSON.stringify(winningScores.score369) !== JSON.stringify(oWinCondition)
     ) {
       setGameResults("tie");
     } else {
-      return (
-        <>
-          
-        </>
-      );
+      return <></>;
     }
   };
 
@@ -158,7 +170,9 @@ const useWinningConditions = () => {
     setPlayer1Score,
     setPlayer2Score,
     player1Score,
-    player2Score
+    player2Score,
+    aIMoves,
+    setAIMoves
   };
 };
 

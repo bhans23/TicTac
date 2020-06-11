@@ -83,7 +83,7 @@ const Square8 = ({
     return <div className="square">{finalSelect()}</div>;
   };
 
-  return <>{buttonSquare()}</>;
+  return <>{finalSelect()}</>;
 };
 
 export default Square8;
