@@ -16,6 +16,7 @@ const GameBoard = ({
   setSquarePlayerTurn,
   winningScores,
   setWinningScores,
+  aIMoves
 }) => {
   return (
     <div className="board">
@@ -26,6 +27,7 @@ const GameBoard = ({
         setSquarePlayerTurn={setSquarePlayerTurn}
         winningScores={winningScores}
         setWinningScores={setWinningScores}
+        aIMoves={aIMoves}
       />
       <Square2
         player={player}
@@ -34,6 +36,7 @@ const GameBoard = ({
         setSquarePlayerTurn={setSquarePlayerTurn}
         winningScores={winningScores}
         setWinningScores={setWinningScores}
+        aIMoves={aIMoves}
       />
       <Square3
         player={player}
@@ -42,6 +45,7 @@ const GameBoard = ({
         setSquarePlayerTurn={setSquarePlayerTurn}
         winningScores={winningScores}
         setWinningScores={setWinningScores}
+        aIMoves={aIMoves}
       />
       <Square4
         player={player}
@@ -50,6 +54,7 @@ const GameBoard = ({
         setSquarePlayerTurn={setSquarePlayerTurn}
         winningScores={winningScores}
         setWinningScores={setWinningScores}
+        aIMoves={aIMoves}
       />
       <Square5
         player={player}
@@ -58,6 +63,7 @@ const GameBoard = ({
         setSquarePlayerTurn={setSquarePlayerTurn}
         winningScores={winningScores}
         setWinningScores={setWinningScores}
+        aIMoves={aIMoves}
       />
       <Square6
         player={player}
@@ -66,6 +72,7 @@ const GameBoard = ({
         setSquarePlayerTurn={setSquarePlayerTurn}
         winningScores={winningScores}
         setWinningScores={setWinningScores}
+        aIMoves={aIMoves}
       />
       <Square7
         player={player}
@@ -74,6 +81,7 @@ const GameBoard = ({
         setSquarePlayerTurn={setSquarePlayerTurn}
         winningScores={winningScores}
         setWinningScores={setWinningScores}
+        aIMoves={aIMoves}
       />
       <Square8
         player={player}
@@ -82,6 +90,7 @@ const GameBoard = ({
         setSquarePlayerTurn={setSquarePlayerTurn}
         winningScores={winningScores}
         setWinningScores={setWinningScores}
+        aIMoves={aIMoves}
       />
       <Square9
         player={player}
@@ -90,6 +99,7 @@ const GameBoard = ({
         setSquarePlayerTurn={setSquarePlayerTurn}
         winningScores={winningScores}
         setWinningScores={setWinningScores}
+        aIMoves={aIMoves}
       />
     </div>
   );

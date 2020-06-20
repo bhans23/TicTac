@@ -6,7 +6,6 @@ import useWinningConditions from "./components/useWinningConditions";
 import PlayerScores from "./components/PlayerScores";
 
 const App = () => {
-  const [player, setPlayer] = useState({ turn: "none" });
   const [gameType, setGameType] = useState("");
 
   const {
@@ -19,29 +18,36 @@ const App = () => {
     setPlayer2Score,
     player1Score,
     player2Score,
-    aImoves,
+    aIMoves,
     setAIMoves,
+    player,
+    setPlayer,
+    squarePlayerTurn,
+    setSquarePlayerTurn,
+    aIRandom,
   } = useWinningConditions();
-  const [squarePlayerTurn, setSquarePlayerTurn] = useState({
-    square1Turn: "none",
-    square2Turn: "none",
-    square3Turn: "none",
-    square4Turn: "none",
-    square5Turn: "none",
-    square6Turn: "none",
-    square7Turn: "none",
-    square8Turn: "none",
-    square9Turn: "none",
-  });
 
   const playerTurn = () => {
     if (player.turn === "player2") {
-      return <h1 className="player2-turn"> Player 2(O's) Turn</h1>;
+      if (gameType === "human") {
+        return <h1 className="player2-turn"> Player 2(O's) Turn</h1>;
+      }
+      if (gameType === "cpu") {
+        return <h1 className="player2-turn"> CPU's Turn</h1>;
+      } else {
+        return null;
+      }
     } else {
       return <h1 className="player1-turn"> Player 1(X's) Turn</h1>;
     }
   };
-
+  const cpuTurn = () => {
+    if (gameType === "cpu" && player.turn === "player2") {
+      return <>{aIRandom()}</>;
+    } else {
+      return null;
+    }
+  };
   const titleScreen = () => {
     if (gameType === "human") {
       return (
@@ -59,6 +65,8 @@ const App = () => {
             setSquarePlayerTurn={setSquarePlayerTurn}
             winningScores={winningScores}
             setWinningScores={setWinningScores}
+            aIMoves={aIMoves}
+            
           />
 
           <button onClick={resetScores}>Reset Scores</button>
@@ -66,8 +74,29 @@ const App = () => {
       );
     }
     if (gameType === "cpu") {
+      return (
+        <div>
+          <PlayerScores
+            player1Score={player1Score}
+            player2Score={player2Score}
+          />
 
+          {playerTurn()}
+          {cpuTurn()}
+          <GameBoard
+            player={player}
+            setPlayer={setPlayer}
+            squarePlayerTurn={squarePlayerTurn}
+            setSquarePlayerTurn={setSquarePlayerTurn}
+            winningScores={winningScores}
+            setWinningScores={setWinningScores}
+            aIMoves={aIMoves}
+            
+          />
 
+          <button onClick={resetScores}>Reset Scores</button>
+        </div>
+      );
     } else {
       return (
         <div>
@@ -107,6 +136,7 @@ const App = () => {
       square8Turn: "none",
       square9Turn: "none",
     });
+    setAIMoves([1,2,3,4,5,6,7,8,9])
   };
   const winning = () => {
     if (gameResults === "") {

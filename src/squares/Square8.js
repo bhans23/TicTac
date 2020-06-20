@@ -9,8 +9,7 @@ const Square8 = ({
   setSquarePlayerTurn,
   winningScores,
   setWinningScores,
-  player1Score,
-  setPlayer1Score
+  aIMoves
 }) => {
   const { square8Turn } = squarePlayerTurn;
   const { score789, score258 } = winningScores;
@@ -25,6 +24,8 @@ const Square8 = ({
         score258: [...score258, "x"],
       });
       setSquarePlayerTurn({ ...squarePlayerTurn, square8Turn: "player2" });
+      const squareIndex = aIMoves.findIndex((move) => move === 8);
+      aIMoves.splice(squareIndex,1)
     }
     if (player.turn === "player2") {
       setPlayer({
@@ -79,9 +80,7 @@ const Square8 = ({
     }
   };
 
-  const buttonSquare = () => {
-    return <div className="square">{finalSelect()}</div>;
-  };
+  
 
   return <>{finalSelect()}</>;
 };
