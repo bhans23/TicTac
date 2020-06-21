@@ -16,9 +16,20 @@ const GameBoard = ({
   setSquarePlayerTurn,
   winningScores,
   setWinningScores,
-  aIMoves
+  aIMoves,
+  resetScores,
+  resetGame,
+  setGameType
 }) => {
+  const mainMenu = () => {
+    
+    setGameType("");
+    resetGame();
+    resetScores();
+    
+  }
   return (
+    <div>
     <div className="board">
       <Square1
         player={player}
@@ -101,6 +112,10 @@ const GameBoard = ({
         setWinningScores={setWinningScores}
         aIMoves={aIMoves}
       />
+    </div>
+    <button onClick={resetScores}>Reset Scores</button>
+    <button onClick={resetGame}>Reset Game</button>
+    <button onClick={mainMenu}>Main Menu</button>
     </div>
   );
 };

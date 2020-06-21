@@ -66,10 +66,10 @@ const App = () => {
             winningScores={winningScores}
             setWinningScores={setWinningScores}
             aIMoves={aIMoves}
-            
+            resetScores={resetScores}
+            resetGame={resetGame}
+            setGameType={setGameType}
           />
-
-          <button onClick={resetScores}>Reset Scores</button>
         </div>
       );
     }
@@ -91,10 +91,10 @@ const App = () => {
             winningScores={winningScores}
             setWinningScores={setWinningScores}
             aIMoves={aIMoves}
-            
+            resetScores={resetScores}
+            resetGame={resetGame}
+            setGameType={setGameType}
           />
-
-          <button onClick={resetScores}>Reset Scores</button>
         </div>
       );
     } else {
@@ -136,7 +136,7 @@ const App = () => {
       square8Turn: "none",
       square9Turn: "none",
     });
-    setAIMoves([1,2,3,4,5,6,7,8,9])
+    setAIMoves([1, 2, 3, 4, 5, 6, 7, 8, 9]);
   };
   const winning = () => {
     if (gameResults === "") {
