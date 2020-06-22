@@ -11,6 +11,10 @@ const Square1 = ({
   setWinningScores,
   aIMoves
 }) => {
+
+
+
+  
   const { square1Turn } = squarePlayerTurn;
   const { score123,score159,score147 } = winningScores;
   
